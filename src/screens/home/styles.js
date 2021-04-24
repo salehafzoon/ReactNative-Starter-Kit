@@ -15,11 +15,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
   },
-  form: {
-    alignContent: 'center',
-    alignItems: 'center',
-    marginVertical: 10,
-  },
   title: {
     margin: 7,
     color: colors.primary,
@@ -36,30 +31,6 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: 1,
     elevation: 8,
-  },
-  btn: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowOpacity: 0.3,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowColor: '#444',
-    shadowRadius: 1,
-  },
-  profImageCont: {
-    borderWidth: 3,
-    borderColor: 'white',
-    shadowColor: colors.gray,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.9,
-    shadowRadius: 3.84,
-    elevation: 5,
-    borderRadius: 100,
   },
   closetBtn: {
     padding: 5,

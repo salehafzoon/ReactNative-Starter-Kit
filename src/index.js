@@ -5,7 +5,6 @@ import { Container, Root, Toast } from 'native-base';
 import { createRootNavigator } from './navigation/router';
 import Splash from './screens/splash';
 import LoadingModal from './components/LoadingModal';
-import NetInfo from '@react-native-community/netinfo';
 import { EventRegister } from 'react-native-event-listeners';
 import {
   ACCESS_TOKEN,
@@ -13,9 +12,6 @@ import {
   API_BASE_URL,
 } from './constants';
 
-import _ from 'lodash';
-import RNFS from 'react-native-fs';
-import RNApkInstallerN from 'react-native-apk-installer-n';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,7 +21,8 @@ export default class App extends React.Component {
       isAuthenticated: false,
       isLoading: true,
       message: "massage", 
-      isMessageModalOpen: false
+      isMessageModalOpen: false,
+      isFirstTime: false
       };
   }
 
@@ -52,7 +49,6 @@ export default class App extends React.Component {
       },
     );
 
-    
     // try {
     //   // await AsyncStorage.clear();
     //   let token = await AsyncStorage.getItem(ACCESS_TOKEN);
@@ -94,6 +90,7 @@ export default class App extends React.Component {
 
     const rootNavigator = createRootNavigator(
       this.state.isAuthenticated,
+      isFirstTime
     );
 
     const AppContainer = createAppContainer(rootNavigator);

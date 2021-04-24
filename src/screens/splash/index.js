@@ -13,8 +13,6 @@ export default class Splash extends Component {
     this.state = {
       user: undefined,
     };
-
-
   }
 
   render() {
@@ -25,16 +23,16 @@ export default class Splash extends Component {
 
           backgroundColor: colors.primary,
         }}>
-        <ImageBackground source={images.loginBackground} style={{
+        <ImageBackground source={images.smile_background} style={{
           flex: 1,
           justifyContent: "center",
           resizeMode: 'cover'
         }}>
-          <View style={styles.loginForm}>
+          <View>
             <Animatable.Image
               animation="fadeIn"
               duration={3000}
-              source={images.logo}
+              source={images.cat_footprint}
               style={{
                 width: 220,
                 height: 70,

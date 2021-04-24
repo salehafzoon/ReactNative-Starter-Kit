@@ -24,7 +24,7 @@ export default class LanguageModal extends Component {
     this.state = {
       data: [
         {label: 'English', value: 'en'},
-        {label: 'Catalan', value: 'es'},
+        {label: 'Persian', value: 'pr'},
       ],
       selected: 0,
     };
@@ -66,31 +66,7 @@ export default class LanguageModal extends Component {
           </View>
 
           <ScrollView style={{margin: 0}}>
-            {/* <List>
-              <FlatList
-                style={{margin: 5, maxHeight: 200}}
-                data={this.state.data}
-                renderItem={({item}) => (
-                  <TouchableOpacity
-                    style={{
-                      flex: 1,
-                      flexDirection: 'row',
-                      alignContent: 'center',
-                      alignSelf: 'center',
-                      alignItems: 'stretch',
-                    }}
-                    onPress={async () => {
-                      await changeLanguage(item.value);
-                      this.props.close();
-                    }}>
-                    <Text style={[basicStyles.grayText, {padding: 10}]}>
-                      {item.key}
-                    </Text>
-                  </TouchableOpacity>
-                )}
-                keyExtractor={item => item.key + ''}
-              />
-            </List> */}
+
             <RadioForm>
               {this.state.data.map((obj, i) => (
                 <View style={{margin: '2%'}}>
