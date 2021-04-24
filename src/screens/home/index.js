@@ -8,7 +8,7 @@ import images from '../../res/images';
 import {translate} from '../../utils/localize';
 import LanguageModal from '../../components/LanguageModal';
 import {EventRegister} from 'react-native-event-listeners';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ACCESS_TOKEN} from '../../constants';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';

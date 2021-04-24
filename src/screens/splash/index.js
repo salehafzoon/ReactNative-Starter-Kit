@@ -34,8 +34,9 @@ export default class Splash extends Component {
               duration={3000}
               source={images.cat_footprint}
               style={{
-                width: 220,
-                height: 70,
+                height: "35%",
+                width: "50%",
+                marginTop:'60%',
                 alignSelf: 'center',
                 backgroundColor: 'white',
               }}

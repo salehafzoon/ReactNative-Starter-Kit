@@ -1,5 +1,5 @@
 import i18n from 'i18n-js';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import en from '../translations/en.json';
 import pr from '../translations/pr.json';
 let localeKey = "locale";

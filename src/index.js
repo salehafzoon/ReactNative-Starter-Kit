@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createAppContainer } from 'react-navigation';
 import { Container, Root, Toast } from 'native-base';
 import { createRootNavigator } from './navigation/router';
