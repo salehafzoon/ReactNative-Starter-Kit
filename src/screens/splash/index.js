@@ -21,7 +21,7 @@ export default class Splash extends Component {
         style={{
           flex: 1,
 
-          backgroundColor: colors.primary,
+          backgroundColor: colors.white,
         }}>
         <ImageBackground source={images.smile_background} style={{
           flex: 1,
@@ -34,8 +34,8 @@ export default class Splash extends Component {
               duration={3000}
               source={images.cat_footprint}
               style={{
-                height: "35%",
-                width: "50%",
+                height: "30%",
+                width: "40%",
                 marginTop:'60%',
                 alignSelf: 'center',
                 backgroundColor: 'white',

@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createAppContainer } from "react-navigation";
-import { Container, Root, Toast } from 'native-base';
-import { createRootNavigator } from './navigation/router';
+import {createAppContainer} from 'react-navigation';
+import {Container, Root, Toast} from 'native-base';
+import {createRootNavigator} from './navigation/router';
 import Splash from './screens/splash';
 import LoadingModal from './components/LoadingModal';
-import { EventRegister } from 'react-native-event-listeners';
-import {
-  ACCESS_TOKEN,
-  FIRST_TIME,
-  API_BASE_URL,
-} from './constants';
-
+import {EventRegister} from 'react-native-event-listeners';
+import {ACCESS_TOKEN, FIRST_TIME, API_BASE_URL} from './constants';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,34 +16,35 @@ export default class App extends React.Component {
       isAuthenticated: false,
       isLoading: false,
       loading: false,
-      message: "massage", 
+      message: 'massage',
       isMessageModalOpen: false,
-      isFirstTime: false
-      };
+      isFirstTime: false,
+    };
   }
 
   performTimeConsumingTask = async () => {
-    return new Promise((resolve) =>
+    return new Promise(resolve =>
       setTimeout(() => {
-        
         resolve('result');
-        this.setState({ isLoading: false})
-      }, 2500),
+        warn('timeout')
+        this.setState({isLoading: false});
+        
+      }, 2000),
     );
   };
 
   async componentDidMount() {
     this.loadingListener = EventRegister.addEventListener(
       'loading',
-      (loading) => {
-        this.setState({ loading: loading });
+      loading => {
+        this.setState({loading: loading});
       },
     );
 
     this.messageDialogListener = EventRegister.addEventListener(
       'messageDialog',
-      (msg) => {
-        this.setState({ message: msg, isMessageModalOpen: true });
+      msg => {
+        this.setState({message: msg, isMessageModalOpen: true});
       },
     );
 
@@ -57,7 +53,6 @@ export default class App extends React.Component {
     //   let token = await AsyncStorage.getItem(ACCESS_TOKEN);
     //   if (token != null) console.warn('app token:' + token);
 
-    
     //   this.setState({
     //     isAuthenticated: token == undefined || token == null ? false : true,
 
@@ -68,7 +63,6 @@ export default class App extends React.Component {
     // } catch (err) {
     //   console.error(err);
     // }
-
   }
 
   componentWillUnmount() {
@@ -81,44 +75,36 @@ export default class App extends React.Component {
     this.forceUpdate();
   };
 
-
   render() {
-
     const rootNavigator = createRootNavigator(
       this.state.isAuthenticated,
-      this.state.isFirstTime
+      this.state.isFirstTime,
     );
 
-    createAppContainer
+    createAppContainer;
     const AppContainer = createAppContainer(rootNavigator);
     if (this.state.isLoading) {
       return (
         <Container>
           <Splash />
-          <UpdateModal
-            isVisible={this.state.isUpdateModalOpen}
-            showProgress={this.state.showProgress}
-            progressValue={this.state.progressValue}
-            onDownload={() => this.downloadApk()}
-          />
         </Container>
       );
-    }
-    return (
-      <Root>
-        <Container>
-        
-          <LoadingModal isLoading={this.state.loading} />
+    } else {
+      return (
+        <Root>
+          <Container>
+            <LoadingModal isLoading={this.state.loading} />
 
-          {/* <MessageModal
+            {/* <MessageModal
             isVisible={this.state.isMessageModalOpen}
             message={this.state.message}
             close={() => this.setState({ isMessageModalOpen: false })}
           /> */}
 
-          <AppContainer {...this.props} />
-        </Container>
-      </Root>
-    );
+            <AppContainer {...this.props} />
+          </Container>
+        </Root>
+      );
+    }
   }
 }

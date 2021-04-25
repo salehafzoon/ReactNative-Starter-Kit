@@ -52,7 +52,9 @@ export default class Home extends Component {
           }}>
           <TouchableOpacity
             onPress={() => {}}>
-            <Text>{translate("home.hi") }</Text>
+            <Text
+            style={globalStyles.blackTitle}
+            >{translate("home.hi") }</Text>
           </TouchableOpacity>
         </View>
       </Container>
