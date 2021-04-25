@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer } from "react-navigation";
 import { Container, Root, Toast } from 'native-base';
 import { createRootNavigator } from './navigation/router';
 import Splash from './screens/splash';
@@ -19,7 +19,8 @@ export default class App extends React.Component {
 
     this.state = {
       isAuthenticated: false,
-      isLoading: true,
+      isLoading: false,
+      loading: false,
       message: "massage", 
       isMessageModalOpen: false,
       isFirstTime: false
@@ -29,7 +30,9 @@ export default class App extends React.Component {
   performTimeConsumingTask = async () => {
     return new Promise((resolve) =>
       setTimeout(() => {
+        
         resolve('result');
+        this.setState({ isLoading: false})
       }, 2500),
     );
   };
@@ -80,32 +83,38 @@ export default class App extends React.Component {
 
 
   render() {
+
+    const rootNavigator = createRootNavigator(
+      this.state.isAuthenticated,
+      this.state.isFirstTime
+    );
+
+    createAppContainer
+    const AppContainer = createAppContainer(rootNavigator);
     if (this.state.isLoading) {
       return (
         <Container>
           <Splash />
+          <UpdateModal
+            isVisible={this.state.isUpdateModalOpen}
+            showProgress={this.state.showProgress}
+            progressValue={this.state.progressValue}
+            onDownload={() => this.downloadApk()}
+          />
         </Container>
       );
     }
-
-    const rootNavigator = createRootNavigator(
-      this.state.isAuthenticated,
-      isFirstTime
-    );
-
-    const AppContainer = createAppContainer(rootNavigator);
-
     return (
       <Root>
         <Container>
         
           <LoadingModal isLoading={this.state.loading} />
 
-          <MessageModal
+          {/* <MessageModal
             isVisible={this.state.isMessageModalOpen}
             message={this.state.message}
             close={() => this.setState({ isMessageModalOpen: false })}
-          />
+          /> */}
 
           <AppContainer {...this.props} />
         </Container>

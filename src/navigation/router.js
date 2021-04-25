@@ -1,15 +1,15 @@
-import {createStackNavigator, createSwitchNavigator} from 'react-navigation';
+import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import Home from '../screens/home';
 
-export const SignedOut = createStackNavigator({
-  // LoginScreen: {
-  //   screen: Login,
-  //   navigationOptions: {
-  //     header: null,
-  //   },
-  // },
-});
+// export const SignedOut = createStackNavigator({
+//   LoginScreen: {
+//     screen: Login,
+//     navigationOptions: {
+//       header: null,
+//     },
+//   },
+// });
 
 
 const SignedIn = createStackNavigator(
@@ -31,14 +31,14 @@ const Authenticating = isAuthenticated => {
     {
       SignedIn: {
         screen: SignedIn,
-      },
-      SignedOut: {
-        screen: SignedOut,
-      },
+      }
+      // ,SignedOut: {
+      //   screen: SignedOut,
+      // },
     },
-    {
-      initialRouteName: isAuthenticated ? 'SignedIn' : 'SignedOut',
-    },
+    // {
+    //   initialRouteName: isAuthenticated ? 'SignedIn' : 'SignedOut',
+    // },
   );
 };
 
