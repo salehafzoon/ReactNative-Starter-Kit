@@ -1,12 +1,18 @@
 {
-    "languageModal": {
-      "selectLanguage": "انتخاب زبان"
-    },
-    "home": {
-      "hi": "سلام"
-    },
-    "loading":{
-        "please_waite":"لطفا کمی صبر کنید"
-      }
+  "languageModal": {
+    "selectLanguage": "انتخاب زبان"
+  },
+  "home": {
+    "hi": "سلام"
+  },
+  "loading": {
+    "please_waite": "لطفا کمی صبر کنید"
+  },
+  "email": "ایمیل",
+  "password": "رمز عبور",
+
+  "login": {
+    "login": "ورود",
+    "forgot_password": "پسورد خود را فراموش کرده اید؟"
   }
-  
+}

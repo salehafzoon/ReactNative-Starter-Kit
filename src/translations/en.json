@@ -5,7 +5,14 @@
   "home": {
     "hi": "Hi"
   },
-  "loading":{
-    "please_waite":"please waite"
+  "loading": {
+    "please_waite": "please waite"
+  },
+  "email": "Email",
+  "password": "Password",
+
+  "login": {
+    "login": "Login",
+    "forgot_password": "Can't remember your password?"
   }
 }

@@ -34,6 +34,11 @@ export default class App extends React.Component {
   };
 
   async componentDidMount() {
+    
+    setTimeout(() => {
+      this.setState({isLoading: false});
+    }, 1200);
+
     this.loadingListener = EventRegister.addEventListener(
       'loading',
       loading => {
@@ -48,21 +53,23 @@ export default class App extends React.Component {
       },
     );
 
-    // try {
-    //   // await AsyncStorage.clear();
-    //   let token = await AsyncStorage.getItem(ACCESS_TOKEN);
-    //   if (token != null) console.warn('app token:' + token);
+    try {
+      // await AsyncStorage.clear();
+      let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+      let firstTime = await AsyncStorage.getItem(FIRST_TIME);
+      
+      if (token != null) console.warn('app token:' + token);
 
-    //   this.setState({
-    //     isAuthenticated: token == undefined || token == null ? false : true,
+      this.setState({
+        isAuthenticated: token == undefined || token == null ? false : true,
 
-    //     isFirstTime: firstTime == undefined || firstTime == null ? true : false,
-    //   });
+        isFirstTime: firstTime == undefined || firstTime == null ? true : false,
+      });
 
-    //   await this.getUser();
-    // } catch (err) {
-    //   console.error(err);
-    // }
+      // await this.getUser();
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   componentWillUnmount() {

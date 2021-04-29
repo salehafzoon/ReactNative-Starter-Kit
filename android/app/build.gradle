@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.iotcontroller"
+        applicationId "com.starterkit"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
