@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { Text, View, Image, ImageBackground } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View, Image, ImageBackground} from 'react-native';
 import images from '../../res/images';
 import * as Animatable from 'react-native-animatable';
 import colors from '../../res/colors';
-import { translate } from '../../utils/localize';
+import {translate} from '../../utils/localize';
 import styles from './style';
-import { Spinner, Header } from 'native-base';
+import globalStyles from '../../res/styles';
+import {Spinner, Header} from 'native-base';
 
 export default class Splash extends Component {
   constructor(properties) {
@@ -23,31 +24,49 @@ export default class Splash extends Component {
 
           backgroundColor: colors.white,
         }}>
-        <ImageBackground source={images.smile_background} style={{
-          flex: 1,
-          justifyContent: "center",
-          resizeMode: 'cover'
-        }}>
+        <Header
+          androidStatusBarColor={colors.primary}
+          iosBarStyle={colors.primary}
+          style={{display: 'none'}}
+        />
+        <ImageBackground
+          // source={images.smile_background}
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            resizeMode: 'cover',
+          }}>
           <View>
             <Animatable.Image
               animation="fadeIn"
               duration={3000}
-              source={images.cat_footprint}
+              source={images.foxy2}
               style={{
-                height: "30%",
-                width: "40%",
-                marginTop:'60%',
+                height: '50%',
+                width: '50%',
+                marginTop: '30%',
                 alignSelf: 'center',
                 backgroundColor: 'white',
               }}
             />
 
-            <Animatable.View animation="fadeIn" delay={500}>
-              <Spinner color={'white'} />
+            <Animatable.View animation="fadeIn" delay={300}>
+              <Text
+                style={[
+                  globalStyles.rubicBold,
+                  {
+                    fontSize: 20,
+                    marginVertical: '1%',
+                    textAlign: 'center',
+                    color: colors.grayDark,
+                  },
+                ]}>
+                {translate('login.app_title')}
+              </Text>
+              <Spinner color={colors.primary} />
             </Animatable.View>
           </View>
         </ImageBackground>
-
       </View>
     );
   }

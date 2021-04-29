@@ -14,7 +14,6 @@ import {ACCESS_TOKEN} from '../../constants';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import globalStyles from '../../res/styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-
 import styles from './styles';
 
 export default class Home extends Component {
@@ -50,11 +49,8 @@ export default class Home extends Component {
             flex: 1,
             backgroundColor: colors.backGray,
           }}>
-          <TouchableOpacity
-            onPress={() => {}}>
-            <Text
-            style={globalStyles.blackTitle}
-            >{translate("home.hi") }</Text>
+          <TouchableOpacity onPress={() => {}}>
+            <Text style={globalStyles.blackTitle}>{translate('home.hi')}</Text>
           </TouchableOpacity>
         </View>
       </Container>

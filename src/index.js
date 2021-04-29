@@ -13,8 +13,8 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      isAuthenticated: false,
-      isLoading: false,
+      isAuthenticated: true,
+      isLoading: true,
       loading: false,
       message: 'massage',
       isMessageModalOpen: false,
@@ -26,18 +26,16 @@ export default class App extends React.Component {
     return new Promise(resolve =>
       setTimeout(() => {
         resolve('result');
-        warn('timeout')
+        warn('timeout');
         this.setState({isLoading: false});
-        
       }, 2000),
     );
   };
 
   async componentDidMount() {
-    
     setTimeout(() => {
       this.setState({isLoading: false});
-    }, 1200);
+    }, 1500);
 
     this.loadingListener = EventRegister.addEventListener(
       'loading',
@@ -52,21 +50,24 @@ export default class App extends React.Component {
         this.setState({message: msg, isMessageModalOpen: true});
       },
     );
+    this.authListener = EventRegister.addEventListener('auth', isAuth => {
+      this.setState({isAuthenticated: isAuth, isLoading: false});
+    });
 
     try {
       // await AsyncStorage.clear();
-      let token = await AsyncStorage.getItem(ACCESS_TOKEN);
-      let firstTime = await AsyncStorage.getItem(FIRST_TIME);
-      
-      if (token != null) console.warn('app token:' + token);
+      // let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+      // let firstTime = await AsyncStorage.getItem(FIRST_TIME);
 
-      this.setState({
-        isAuthenticated: token == undefined || token == null ? false : true,
+      // if (token != null) console.warn('app token:' + token);
 
-        isFirstTime: firstTime == undefined || firstTime == null ? true : false,
-      });
+      // this.setState({
+      //   isAuthenticated: token == undefined || token == null ? false : true,
 
+      //   isFirstTime: firstTime == undefined || firstTime == null ? true : false,
+      // });
       // await this.getUser();
+      
     } catch (err) {
       console.error(err);
     }

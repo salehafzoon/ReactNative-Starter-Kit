@@ -14,6 +14,8 @@
     "@react-native-firebase/app": "^11.3.3",
     "@react-native-firebase/crashlytics": "^11.3.3",
     "@react-native-firebase/messaging": "^11.3.3",
+    "@react-navigation/drawer": "^5.12.5",
+    "@react-navigation/native": "react-navigation/native",
     "axios": "^0.21.1",
     "i18n-js": "^3.8.0",
     "native-base": "^2.15.2",
