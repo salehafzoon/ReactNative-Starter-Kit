@@ -12,7 +12,10 @@
   "password": "رمز عبور",
 
   "login": {
+    "app_title": "روباه قرمز",
+    "app_description": "به روباه قرمز خوش آمدید",
     "login": "ورود",
-    "forgot_password": "پسورد خود را فراموش کرده اید؟"
+    "forgot_password": "پسورد خود را فراموش کرده اید؟",
+    "wrong_username_or_password": "شناسه کاربری یا رمز عبور اشتباه است"
   }
 }

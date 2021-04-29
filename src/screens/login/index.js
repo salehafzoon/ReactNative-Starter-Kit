@@ -42,7 +42,7 @@ export default class Login extends Component {
 
   doLogin = async () => {
     console.warn("doing login");
-    EventRegister.emit('loading', false);
+    EventRegister.emit('loading', true);
     let getToken = null;
     try {
       getToken = await firebaseM().getToken();  
@@ -61,6 +61,11 @@ export default class Login extends Component {
       data.token = getToken;
     }
     console.warn(data);
+
+    // you can delete bellow 2 lines and uncomment lines after that for login process
+    EventRegister.emit('auth', true);
+    EventRegister.emit('loading', false);
+
     // login(data)
     //   .then(async res => {
     //     console.log(res);
@@ -83,8 +88,8 @@ export default class Login extends Component {
     return (
       <Container style={{ flex: 1, backgroundColor: colors.backGray }}>
         <Header
-          androidStatusBarColor={colors.primary2}
-          iosBarStyle={colors.primary2}
+          androidStatusBarColor={colors.primary}
+          iosBarStyle={colors.primary}
           style={{ display: 'none' }}
         />
         <Content style={{}}>
@@ -95,29 +100,23 @@ export default class Login extends Component {
             }}>
             <Text
               style={[
-                globalStyles.rubicMedium,
+                globalStyles.rubicBold,
                 {
-                  fontSize: 19,
+                  fontSize: 20,
                   marginVertical: '1%',
                   textAlign: 'center',
-                  color: colors.myGrayDark,
+                  color: colors.grayDark,
                 },
               ]}>
-              {translate('login.join_delinternet')}
+              {translate('login.app_title')}
             </Text>
             <Text
               style={[
                 globalStyles.rubicRegular,
                 ,
-                { fontSize: 12, marginTop: '1%' },
+                { fontSize: 14, marginTop: '2%' },
               ]}>
-              {translate('welcome.arbitrary_donation_part1')}
-            </Text>
-            <Text style={[globalStyles.rubicRegular, , { fontSize: 12 }]}>
-              {translate('welcome.arbitrary_donation_part2')}
-            </Text>
-            <Text style={[globalStyles.rubicRegular, , { fontSize: 12 }]}>
-              {translate('welcome.arbitrary_donation_part3')}
+              {translate('login.app_description')}
             </Text>
           </View>
           <Form style={{ marginHorizontal: '8%' }}>
@@ -140,7 +139,7 @@ export default class Login extends Component {
               icon={
                 <View style={{}}>
                   <MatComIcons
-                    color={colors.myGrayIcon}
+                    color={colors.gray}
                     name="lock"
                     size={20}
                   />
@@ -151,9 +150,9 @@ export default class Login extends Component {
               block
               onPress={this.doLogin}
               style={{
-                backgroundColor: colors.primary2,
+                backgroundColor: colors.primary,
                 marginTop: '4%',
-                borderRadius: 3,
+                borderRadius: 25,
               }}>
               <Text
                 style={[
@@ -177,9 +176,9 @@ export default class Login extends Component {
                 style={[
                   globalStyles.rubicMedium,
                   {
-                    fontSize: 12,
+                    fontSize: 14,
                     textAlign: 'center',
-                    color: colors.myGrayIcon,
+                    color: colors.gray,
                     margin: '1%',
                   },
                 ]}>

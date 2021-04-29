@@ -38,7 +38,7 @@ export default StyleSheet.create({
     fontSize: 15,
   },
   rubicRegular: {
-    color: colors.myGray,
+    color: colors.gray,
     fontFamily: 'Rubik-Regular',
     fontSize: 15,
     textAlign: 'center',
@@ -46,6 +46,7 @@ export default StyleSheet.create({
   rubicBold: {
     color: colors.myGray,
     fontFamily: 'Rubik-Bold',
+    fontWeight:'bold',
     fontSize: 15,
   },
   rubicLight: {

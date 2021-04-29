@@ -11,11 +11,11 @@ export default class GrayInputItem extends Component {
         <Input
           {...this.props}
           placeholder={translate(this.props.title)}
-          style={{fontSize: 12.5, marginHorizontal: 14}}
-          placeholderTextColor={colors.light_gray}
+          style={{fontSize: 12.5, marginHorizontal: '6%'}}
+          placeholderTextColor={colors.myGray}
           onChangeText={value => this.props.onChange(value)}
         />
-        <View style={{alignSelf: 'center', marginHorizontal: 10}}>
+        <View style={{alignSelf: 'center', marginHorizontal: '5%'}}>
           {this.props.icon != null && this.props.icon}
         </View>
       </View>
