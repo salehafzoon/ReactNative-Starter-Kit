@@ -1,4 +1,3 @@
-import globalStyles from '../../res/styles';
 import React, {Component} from 'react';
 import {Text, View, Image, ImageBackground} from 'react-native';
 import images from '../../res/images';

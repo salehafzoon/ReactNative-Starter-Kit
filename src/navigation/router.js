@@ -1,82 +1,20 @@
-import {createSwitchNavigator, createStackNavigator} from 'react-navigation';
+// import {createSwitchNavigator, createStackNavigator} from 'react-navigation';
 
+import React, {Component} from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import Home from '../screens/home';
-import Login from '../screens/login';
-import Second from '../screens/second';
-
-export const SignedOut = createStackNavigator({
-  LoginScreen: {
-    screen: Login,
-    navigationOptions: {
-      header: null,
-    },
-  },
-});
-
-// const SignedIn = createStackNavigator(
-//   {
-//     HomeScreen: {
-//       screen: Home,
-//       navigationOptions: {
-//         header: null,
-//       },
-//     },
-//   },
-//   {
-//     initialRouteName: 'HomeScreen',
-//   },
-// );
-
-const SignedIn = createDrawerNavigator(
-  {
-    HomeScreen: {
-      screen: Home,
-      navigationOptions: {
-        header: null,
-      },
-    },
-    SecondScreen: {
-      screen: Second,
-      navigationOptions: {
-        header: null,
-      },
-    },
-  },
-  {
-    initialRouteName: 'HomeScreen',
-  },
-);
-
-const Authenticating = isAuthenticated => {
-  return createSwitchNavigator(
-    {
-      SignedIn: {
-        screen: SignedIn,
-      },
-      SignedOut: {
-        screen: SignedOut,
-      },
-    },
-    {
-      initialRouteName: isAuthenticated ? 'SignedIn' : 'SignedOut',
-    },
-  );
-};
+import HomeScreen from '../screens/home';
+import LoginScreen from '../screens/login';
+import SecondScreen from '../screens/second';
 
 export const createRootNavigator = (isAuthenticated, isFirstTime) => {
-  return createSwitchNavigator(
-    {
-      AuthenticatingScreen: {
-        screen: Authenticating(isAuthenticated),
-      },
-    },
-    // {
-    //   initialRouteName: isFirstTime
-    //     ? 'welcomingScreen'
-    //     : 'AuthenticatingScreen',
-    // },
+  const Drawer = createDrawerNavigator();
+  return (
+    <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Second" component={SecondScreen} />
+    </Drawer.Navigator>
   );
 };

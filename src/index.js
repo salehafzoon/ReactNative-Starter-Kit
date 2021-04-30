@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {createAppContainer} from 'react-navigation';
 import {Container, Root, Toast} from 'native-base';
 import {createRootNavigator} from './navigation/router';
 import Splash from './screens/splash';
 import LoadingModal from './components/LoadingModal';
 import {EventRegister} from 'react-native-event-listeners';
 import {ACCESS_TOKEN, FIRST_TIME, API_BASE_URL} from './constants';
+import {NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createStackNavigator} from '@react-navigation/stack';
+
+import HomeScreen from './screens/home';
+import LoginScreen from './screens/login';
+import SecondScreen from './screens/second';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -58,16 +64,12 @@ export default class App extends React.Component {
       // await AsyncStorage.clear();
       // let token = await AsyncStorage.getItem(ACCESS_TOKEN);
       // let firstTime = await AsyncStorage.getItem(FIRST_TIME);
-
       // if (token != null) console.warn('app token:' + token);
-
       // this.setState({
       //   isAuthenticated: token == undefined || token == null ? false : true,
-
       //   isFirstTime: firstTime == undefined || firstTime == null ? true : false,
       // });
       // await this.getUser();
-      
     } catch (err) {
       console.error(err);
     }
@@ -84,13 +86,16 @@ export default class App extends React.Component {
   };
 
   render() {
+
     const rootNavigator = createRootNavigator(
       this.state.isAuthenticated,
       this.state.isFirstTime,
     );
+    const Drawer = createDrawerNavigator();
 
-    createAppContainer;
-    const AppContainer = createAppContainer(rootNavigator);
+    // createAppContainer;
+    // const AppContainer = createAppContainer(rootNavigator);
+
     if (this.state.isLoading) {
       return (
         <Container>
@@ -103,13 +108,14 @@ export default class App extends React.Component {
           <Container>
             <LoadingModal isLoading={this.state.loading} />
 
-            {/* <MessageModal
-            isVisible={this.state.isMessageModalOpen}
-            message={this.state.message}
-            close={() => this.setState({ isMessageModalOpen: false })}
-          /> */}
-
-            <AppContainer {...this.props} />
+            {/* <AppContainer {...this.props} /> */}
+            <NavigationContainer>
+              {/* <rootNavigator {...this.props} /> */}
+              <Drawer.Navigator initialRouteName="Home">
+                <Drawer.Screen name="Home" component={HomeScreen} />
+                <Drawer.Screen name="Second" component={SecondScreen} />
+              </Drawer.Navigator>
+            </NavigationContainer>
           </Container>
         </Root>
       );

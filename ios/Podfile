@@ -12,6 +12,10 @@ target 'StarterKit' do
     :hermes_enabled => false
   )
 
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'StarterKitTests' do
     inherit! :complete
     # Pods for testing
