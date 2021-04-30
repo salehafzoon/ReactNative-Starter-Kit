@@ -17,5 +17,14 @@
     "login": "ورود",
     "forgot_password": "پسورد خود را فراموش کرده اید؟",
     "wrong_username_or_password": "شناسه کاربری یا رمز عبور اشتباه است"
+  },
+  "drawer": {
+    "home": "خانه",
+    "signout": "خروج",
+    "username": "نام کاربری",
+    "email": "mail@email.com",
+    "profile": "پروفایل",
+    "preferences": "ترجیح",
+    "dark-theme":"حالت تیره"
   }
 }

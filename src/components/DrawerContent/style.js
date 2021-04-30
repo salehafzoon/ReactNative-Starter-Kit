@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   },
   userInfoSection: {
     paddingLeft: '2%',
+    marginBottom: '5%',
   },
   row: {
     marginTop: '5%',
@@ -14,9 +15,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   section: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    marginTop: '5%',
     marginRight: '4%',
+    borderBottomColor: '#f4f4f4',
+    borderBottomWidth: 1,
   },
   paragraph: {
     fontWeight: 'bold',
@@ -32,6 +34,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: '2%',
     paddingVertical: '4%',
+    marginTop: '2%',
   },
 });
 

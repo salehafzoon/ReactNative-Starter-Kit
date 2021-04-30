@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View, Image, NativeModules} from 'react-native';
-import {Container, Content, Button, Header, Toast} from 'native-base';
+import {View, Image, NativeModules, Text} from 'react-native';
+import {Content, Button, Header, Toast} from 'native-base';
 
 import colors from '../../res/colors';
 import images from '../../res/images';
@@ -16,7 +16,9 @@ import globalStyles from '../../res/styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
 
-import {DrawerActions} from '@react-navigation/native';
+import {DrawerActions, useTheme} from '@react-navigation/native';
+
+let theme;
 
 export default class Home extends Component {
   constructor(props) {
@@ -28,15 +30,19 @@ export default class Home extends Component {
       user: {
         firstname: '',
       },
+      theme: null,
     };
   }
 
-  async componentDidMount() {
+  async componentWillUnmount() {
+    theme = useTheme();
   }
 
   render() {
     return (
-      <Container>
+      <Content
+      //  style={{backgroundColor: theme.colors.background}}
+      >
         <LanguageModal
           isOpen={this.state.languageModalOpen}
           close={() => this.setState({languageModalOpen: false})}
@@ -50,7 +56,6 @@ export default class Home extends Component {
         <View
           style={{
             flex: 1,
-            backgroundColor: colors.backGray,
           }}>
           <TouchableOpacity
             onPress={() => {
@@ -59,7 +64,7 @@ export default class Home extends Component {
             <Text style={globalStyles.blackTitle}>{translate('home.hi')}</Text>
           </TouchableOpacity>
         </View>
-      </Container>
+      </Content>
     );
   }
 }

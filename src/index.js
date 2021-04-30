@@ -6,13 +6,47 @@ import Splash from './screens/splash';
 import LoadingModal from './components/LoadingModal';
 import {EventRegister} from 'react-native-event-listeners';
 import {ACCESS_TOKEN, FIRST_TIME, API_BASE_URL} from './constants';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  DefaultTheme as NavigatorDefaultTheme,
+  DarkTheme as NavigatorDarkTheme,
+} from '@react-navigation/native';
+
+import {
+  Provider as PapaerProvider,
+  DefaultTheme as PapaerDefaultTheme,
+  DarkTheme as PapaerDarkTheme,
+} from 'react-native-paper';
+
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import HomeScreen from './screens/home';
 import LoginScreen from './screens/login';
 import SecondScreen from './screens/second';
+import colors from './res/colors';
+
+const customDefaultTheme = {
+  ...NavigatorDefaultTheme,
+  ...PapaerDefaultTheme,
+  colors: {
+    ...NavigatorDefaultTheme.colors,
+    ...PapaerDefaultTheme.colors,
+  },
+};
+
+const customDarkTheme = {
+  ...NavigatorDarkTheme,
+  ...PapaerDarkTheme,
+  colors: {
+    ...NavigatorDarkTheme.colors,
+    ...PapaerDarkTheme.colors,
+    background: colors.gray,
+    text: colors.somkeWhite,
+    primary: '#3498db',
+    accent: '#f1c40f',
+  },
+};
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,6 +59,7 @@ export default class App extends React.Component {
       message: 'massage',
       isMessageModalOpen: false,
       isFirstTime: false,
+      isDarkTheme: false,
     };
   }
 
@@ -60,6 +95,12 @@ export default class App extends React.Component {
       this.setState({isAuthenticated: isAuth, isLoading: false});
     });
 
+    this.darckThemeListener = EventRegister.addEventListener(
+      'darkTheme',
+      isDark => {
+        this.setState({isDarkTheme: isDark});
+      },
+    );
     try {
       // await AsyncStorage.clear();
       // let token = await AsyncStorage.getItem(ACCESS_TOKEN);
@@ -78,6 +119,7 @@ export default class App extends React.Component {
   componentWillUnmount() {
     EventRegister.removeEventListener(this.loadingListener);
     EventRegister.removeEventListener(this.messageDialogListener);
+    EventRegister.removeEventListener(this.darckThemeListener);
   }
 
   handleLocalizationChange = () => {
@@ -90,30 +132,20 @@ export default class App extends React.Component {
       this.state.isAuthenticated,
       this.state.isFirstTime,
     );
-    const Drawer = createDrawerNavigator();
 
-    // createAppContainer;
-    // const AppContainer = createAppContainer(rootNavigator);
+    let theme = this.state.isDarkTheme ? customDarkTheme : customDefaultTheme;
 
     if (this.state.isLoading) {
       return <Splash />;
     } else {
       return (
         <Root>
-          <Container>
-            <LoadingModal isLoading={this.state.loading} />
-
-            {/* <AppContainer {...this.props} /> */}
-            <NavigationContainer>
-              {/* <rootNavigator/> */}
+          <LoadingModal isLoading={this.state.loading} />
+          <PapaerProvider theme={theme}>
+            <NavigationContainer theme={theme}>
               {rootNavigator}
-
-              {/* <Drawer.Navigator initialRouteName="Home">
-                <Drawer.Screen name="Home" component={HomeScreen} />
-                <Drawer.Screen name="Second" component={SecondScreen} />
-              </Drawer.Navigator> */}
             </NavigationContainer>
-          </Container>
+          </PapaerProvider>
         </Root>
       );
     }
