@@ -86,7 +86,6 @@ export default class App extends React.Component {
   };
 
   render() {
-
     const rootNavigator = createRootNavigator(
       this.state.isAuthenticated,
       this.state.isFirstTime,
@@ -97,11 +96,7 @@ export default class App extends React.Component {
     // const AppContainer = createAppContainer(rootNavigator);
 
     if (this.state.isLoading) {
-      return (
-        <Container>
-          <Splash />
-        </Container>
-      );
+      return <Splash />;
     } else {
       return (
         <Root>
@@ -110,11 +105,13 @@ export default class App extends React.Component {
 
             {/* <AppContainer {...this.props} /> */}
             <NavigationContainer>
-              {/* <rootNavigator {...this.props} /> */}
-              <Drawer.Navigator initialRouteName="Home">
+              {/* <rootNavigator/> */}
+              {rootNavigator}
+
+              {/* <Drawer.Navigator initialRouteName="Home">
                 <Drawer.Screen name="Home" component={HomeScreen} />
                 <Drawer.Screen name="Second" component={SecondScreen} />
-              </Drawer.Navigator>
+              </Drawer.Navigator> */}
             </NavigationContainer>
           </Container>
         </Root>

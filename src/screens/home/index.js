@@ -16,6 +16,8 @@ import globalStyles from '../../res/styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
 
+import {DrawerActions} from '@react-navigation/native';
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +31,8 @@ export default class Home extends Component {
     };
   }
 
-  async componentDidMount() {}
+  async componentDidMount() {
+  }
 
   render() {
     return (
@@ -49,7 +52,10 @@ export default class Home extends Component {
             flex: 1,
             backgroundColor: colors.backGray,
           }}>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.dispatch(DrawerActions.openDrawer());
+            }}>
             <Text style={globalStyles.blackTitle}>{translate('home.hi')}</Text>
           </TouchableOpacity>
         </View>
