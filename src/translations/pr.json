@@ -37,5 +37,12 @@
     "confirmPassword": "تایید پسورد جدید",
     "saveChanges": "به روز رسانی پسورد",
     "editProfile": "تغییر مشخصات کاربری"
+  },
+  "photo": {
+    "take-photo": "گرفتن عکس",
+    "choose-from-album": "انتخاب از آلبوم",
+    "edit-photo": "ویرایش عکس",
+    "choose-your-profile-photo": "عکس کاربری خود را انتخاب کنید",
+    "cancel": "خروج"
   }
 }

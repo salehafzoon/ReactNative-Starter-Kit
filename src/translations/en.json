@@ -18,7 +18,6 @@
     "forgot_password": "Can't remember your password?",
     "wrong_username_or_password": "username or password is wrong"
   },
-
   "drawer": {
     "home": "home",
     "signout": "Sign out",
@@ -39,5 +38,12 @@
     "confirmPassword": "Confirm Password",
     "saveChanges": "Save changes",
     "editProfile": "Edite Profile"
+  },
+  "photo": {
+    "take-photo": "Take Photo",
+    "choose-from-album": "Choose From Album",
+    "edit-photo": "Edit Photo",
+    "choose-your-profile-photo": "Choose Your Profile Photo",
+    "cancel": "Cancel"
   }
 }

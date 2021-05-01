@@ -22,9 +22,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 import {EventRegister} from 'react-native-event-listeners';
+import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
 
 import basicStyles from '../../res/styles';
 import styles from './styles';
+import TakePhotoSheet from '../../components/TakePhotoSheet';
+import {useTheme} from '@react-navigation/native';
 
 export default class Profile extends Component {
   constructor(props) {
@@ -43,6 +47,9 @@ export default class Profile extends Component {
       edited: false,
       avatar: null,
     };
+    this.sheetRef = React.createRef();
+    this.fall = new Animated.Value(1);
+
     this.logout = this.logout.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
@@ -58,7 +65,7 @@ export default class Profile extends Component {
   getProfile = () => {};
 
   render() {
-    let THIS = this;
+    let This = this;
     return (
       <View style={{flex: 1}}>
         <Header
@@ -130,17 +137,23 @@ export default class Profile extends Component {
                   marginLeft: '18%',
                 },
               ]}>
-              <EvilIcons
-                name="camera"
-                size={22}
-                color="white"
-                style={{
-                  borderRadius: 30,
-                  paddingVertical: '0.9%',
-                  padding: '0.6%',
-                  backgroundColor: colors.primary,
-                }}
-              />
+              <TouchableOpacity
+                onPress={() => {
+                  // Toast.show({text: 'hi'});
+                  This.sheetRef.current.snapTo(0);
+                }}>
+                <EvilIcons
+                  name="camera"
+                  size={22}
+                  color="white"
+                  style={{
+                    borderRadius: 30,
+                    paddingVertical: '0.9%',
+                    padding: '0.6%',
+                    backgroundColor: colors.primary,
+                  }}
+                />
+              </TouchableOpacity>
             </View>
             <ScrollView style={{margin: '5%'}}>
               <View style={{}}>
@@ -183,14 +196,34 @@ export default class Profile extends Component {
           </View>
         </Content>
 
-        <Footer style={{}}>
+        <BottomSheet
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            zIndex: 1,
+          }}
+          ref={This.sheetRef}
+          snapPoints={[320, 0]}
+          initialSnap={1}
+          borderRadius={10}
+          callbackNode={This.fall}
+          enabledGestureInteraction={true}
+          renderContent={() => <TakePhotoSheet />}
+        />
+
+        <Footer
+          style={{
+            // position: 'absolute',
+            // bottom: 0,
+            zIndex: -1,
+          }}>
           <Button
             full
             success
             disabled={!this.state.edited}
             style={{
-              height: '100%',
               width: '100%',
+              height: '100%',
             }}
             backgroundColor={colors.primary}
             onPress={this.saveChanges}>
