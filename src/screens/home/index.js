@@ -78,7 +78,7 @@ export default class Home extends Component {
           <View style={{marginTop: '30%'}}>
             <Image
               source={images.foxy1}
-              style={{alignSelf: 'center', width: 200, height: 200}}
+              style={{alignSelf: 'center', width: 150, height: 150}}
             />
             <Text
               style={[

@@ -27,5 +27,16 @@
     "profile": "profile",
     "preferences": "preferences",
     "dark-theme": "Dark theme"
+  },
+  "profile": {
+    "title": "Profile",
+    "phone_number": "Phone number",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "username": "User name",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "saveChanges": "Save changes",
+    "editProfile": "Edite Profile"
   }
 }

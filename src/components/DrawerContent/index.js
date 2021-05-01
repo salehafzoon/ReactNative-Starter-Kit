@@ -59,6 +59,7 @@ export default class DrawerContent extends Component {
                   <Entypo color={color} size={size} name="home" />
                 )}
                 label={translate('drawer.home')}
+                onPress={() => This.props.navigation.navigate('Home')}
               />
               <Drawer.Item
                 icon={({color, size}) => (
@@ -69,6 +70,7 @@ export default class DrawerContent extends Component {
                   />
                 )}
                 label={translate('drawer.profile')}
+                onPress={() => This.props.navigation.navigate('Profile')}
               />
             </Drawer.Section>
             <Drawer.Section
@@ -96,7 +98,7 @@ export default class DrawerContent extends Component {
             icon="logout"
             label={translate('drawer.signout')}
             onPress={() =>
-              This.props.navigation.navigate('Second')
+              This.props.navigation.navigate('Profile')
             }></Drawer.Item>
         </Drawer.Section>
       </View>

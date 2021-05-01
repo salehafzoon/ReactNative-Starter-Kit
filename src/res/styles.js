@@ -21,8 +21,7 @@ export default StyleSheet.create({
   },
 
   backgroudnText: {
-    fontSize: 32,
-    color: colors.myLightGray2,
+    fontSize: 26,
     alignSelf: 'stretch',
     fontFamily: 'Rubik-Medium',
   },
