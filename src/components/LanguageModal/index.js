@@ -17,7 +17,7 @@ import RadioForm, {
 } from 'react-native-simple-radio-button';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
+import {EventRegister} from 'react-native-event-listeners';
 export default class LanguageModal extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +55,7 @@ export default class LanguageModal extends Component {
             </Text>
             <TouchableOpacity
               style={[{borderRadius: 5}]}
-              onPress={() => this.props.close()}>
+              onPress={() => EventRegister.emit('languageModal', false)}>
               <AntDesign
                 style={{}}
                 color={colors.myGrayDark}
@@ -66,7 +66,6 @@ export default class LanguageModal extends Component {
           </View>
 
           <ScrollView style={{margin: 0}}>
-
             <RadioForm>
               {this.state.data.map((obj, i) => (
                 <View style={{margin: '2%'}}>

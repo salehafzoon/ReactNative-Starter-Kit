@@ -26,7 +26,8 @@
     "email": "mail@email.com",
     "profile": "profile",
     "preferences": "preferences",
-    "dark-theme": "Dark theme"
+    "dark-theme": "Dark theme",
+    "language": "Language"
   },
   "profile": {
     "title": "Profile",

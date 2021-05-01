@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
 
   backgroudnText: {
-    fontSize: 26,
+    fontSize: 24,
     alignSelf: 'stretch',
     fontFamily: 'Rubik-Medium',
   },

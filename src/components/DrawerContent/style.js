@@ -36,6 +36,19 @@ const styles = StyleSheet.create({
     paddingVertical: '4%',
     marginTop: '2%',
   },
+  button: {
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    // shadowOffset: {
+    //   width: 2,
+    //   height: 2,
+    // },
+    borderColor: 'white',
+    shadowOpacity: 0.9,
+    shadowRadius: 2,
+    elevation: 2,
+    borderRadius: 30,
+  },
 });
 
 export default styles;

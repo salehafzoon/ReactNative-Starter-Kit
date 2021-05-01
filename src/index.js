@@ -23,8 +23,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import HomeScreen from './screens/home';
 import LoginScreen from './screens/login';
-import SecondScreen from './screens/second';
+import SecondScreen from './screens/profile';
 import colors from './res/colors';
+import LanguageModal from './components/LanguageModal';
 
 const customDefaultTheme = {
   ...NavigatorDefaultTheme,
@@ -60,6 +61,7 @@ export default class App extends React.Component {
       isMessageModalOpen: false,
       isFirstTime: false,
       isDarkTheme: false,
+      isLangModalOpen: false,
     };
   }
 
@@ -101,6 +103,12 @@ export default class App extends React.Component {
         this.setState({isDarkTheme: isDark});
       },
     );
+    this.lnagModalListener = EventRegister.addEventListener(
+      'languageModal',
+      isOpen => {
+        this.setState({isLangModalOpen: isOpen});
+      },
+    );
     try {
       // await AsyncStorage.clear();
       // let token = await AsyncStorage.getItem(ACCESS_TOKEN);
@@ -119,7 +127,9 @@ export default class App extends React.Component {
   componentWillUnmount() {
     EventRegister.removeEventListener(this.loadingListener);
     EventRegister.removeEventListener(this.messageDialogListener);
+    EventRegister.removeEventListener(this.authListener);
     EventRegister.removeEventListener(this.darckThemeListener);
+    EventRegister.removeEventListener(this.lnagModalListener);
   }
 
   handleLocalizationChange = () => {
@@ -136,6 +146,7 @@ export default class App extends React.Component {
 
     return (
       <Root>
+        <LanguageModal isOpen={this.state.isLangModalOpen} />
         <LoadingModal isLoading={this.state.loading} />
         <PapaerProvider theme={theme}>
           <NavigationContainer theme={theme}>

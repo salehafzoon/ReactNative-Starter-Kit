@@ -26,5 +26,16 @@
     "profile": "پروفایل",
     "preferences": "ترجیح",
     "dark-theme": "حالت تیره"
+  },
+  "profile": {
+    "title": "مشخصات کاربری",
+    "phone_number": "تلفن",
+    "firstName": "نام",
+    "lastName": "نام خانوادگی",
+    "username": "نام کاربری",
+    "newPassword": "پسورد جدید",
+    "confirmPassword": "تایید پسورد جدید",
+    "saveChanges": "به روز رسانی پسورد",
+    "editProfile": "تغییر مشخصات کاربری"
   }
 }

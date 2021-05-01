@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 
 import {
@@ -21,6 +21,7 @@ import styles from './style';
 import {translate} from '../../utils/localize';
 import images from '../../res/images';
 import colors from '../../res/colors';
+import {Button, Card} from 'native-base';
 
 export default class DrawerContent extends Component {
   constructor(props) {
@@ -80,15 +81,28 @@ export default class DrawerContent extends Component {
                 onPress={() => {
                   this.toggleTheme();
                 }}>
-                <View style={styles.preference}>
-                  <Text style={{marginLeft: '5%'}}>
-                    {translate('drawer.dark-theme')}
-                  </Text>
-                  <View pointerEvents="none">
-                    <Switch value={This.state.isDarkTheme} />
+                <View>
+                  <View style={styles.preference}>
+                    <Text style={{marginLeft: '5%'}}>
+                      {translate('drawer.dark-theme')}
+                    </Text>
+                    <View pointerEvents="none">
+                      <Switch value={This.state.isDarkTheme} />
+                    </View>
                   </View>
                 </View>
               </TouchableRipple>
+              <TouchableOpacity style={styles.preference}
+              onPress={()=>EventRegister.emit('languageModal', true)}>
+                <Text style={{marginLeft: '5%'}}>
+                  {translate('drawer.language')}
+                </Text>
+                <Ionicons
+                  style={{marginHorizontal: '4%'}}
+                  name="ios-language"
+                  size={22}
+                />
+              </TouchableOpacity>
             </Drawer.Section>
           </View>
         </DrawerContentScrollView>
@@ -97,9 +111,7 @@ export default class DrawerContent extends Component {
           <Drawer.Item
             icon="logout"
             label={translate('drawer.signout')}
-            onPress={() =>
-              This.props.navigation.navigate('Profile')
-            }></Drawer.Item>
+            onPress={() => EventRegister.emit('auth', false)}></Drawer.Item>
         </Drawer.Section>
       </View>
     );

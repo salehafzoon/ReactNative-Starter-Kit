@@ -36,6 +36,7 @@ export default class Profile extends Component {
       user: {
         name: 'sample',
         email: 'mail@gmail.com',
+        username: 'username',
       },
       newPassword: '',
       confirmPassword: '',
@@ -89,7 +90,7 @@ export default class Profile extends Component {
                   basicStyles.backgroudnText,
                   {
                     marginHorizontal: '4%',
-                    marginBottom: '2%',
+                    marginBottom: '3%',
                   },
                 ]}>
                 {translate('profile.editProfile')}
@@ -150,7 +151,7 @@ export default class Profile extends Component {
                   style={styles.inputStyle}
                   editable={false}
                   value={this.state.user.firstname}
-                  placeholder={'first name'}
+                  placeholder={'First name'}
                   onChangeText={text => this.setState({'user.firstname': text})}
                 />
               </View>
@@ -162,21 +163,19 @@ export default class Profile extends Component {
                   style={styles.inputStyle}
                   editable={false}
                   value={this.state.user.lastname}
-                  placeholder={'profile.lastName'}
+                  placeholder={translate('profile.lastName')}
                   onChangeText={text => this.setState({'user.lastname': text})}
                 />
               </View>
-              <View style={{}}>
+              <View>
                 <Text style={styles.titleStyle}>
                   {translate('profile.username')}
                 </Text>
                 <TextInput
                   editable={false}
                   style={styles.inputStyle}
-                  // value={'sample.me/' + this.state.user.username}
-                  // placeholder={'sample.me/' + this.state.user.username}
-                  value={this.state.user.user}
-                  placeholder={this.state.user.user}
+                  value={this.state.user.username}
+                  placeholder={this.state.user.username}
                   onChangeText={text => this.setState({'user.username': text})}
                 />
               </View>
