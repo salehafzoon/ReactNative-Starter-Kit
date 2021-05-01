@@ -105,7 +105,7 @@ export default class Login extends Component {
                   fontSize: 20,
                   marginVertical: '1%',
                   textAlign: 'center',
-                  color: colors.grayDark,
+                  color: 'black',
                 },
               ]}>
               {translate('login.app_title')}

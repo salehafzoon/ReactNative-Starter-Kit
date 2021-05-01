@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, FlatList, ScrollView, TouchableOpacity} from 'react-native';
+import {View, FlatList, ScrollView, TouchableOpacity} from 'react-native';
 
 import colors from '../../res/colors';
 import basicStyles from '../../res/styles';
@@ -15,6 +15,7 @@ import RadioForm, {
   RadioButtonInput,
   RadioButtonLabel,
 } from 'react-native-simple-radio-button';
+import {Text, Title} from 'react-native-paper';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {EventRegister} from 'react-native-event-listeners';
@@ -38,29 +39,36 @@ export default class LanguageModal extends Component {
         animationInTiming={1000}
         animationOutTiming={1000}
         style={{margin: '10%'}}>
-        <Card style={{marginVertical: 5, marginHorizontal: 5, padding: 5}}>
+        <Card
+          style={{
+            marginVertical: '2%',
+            borderRadius: 15,
+          }}>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              alignItems: 'baseline',
-              margin: '6%',
+              alignItems: 'center',
+              paddingHorizontal: '6%',
+              paddingVertical: '4%',
+              borderBottomWidth: 2,
+              borderBottomColor: colors.grayLight,
             }}>
-            <Text
-              style={[
-                basicStyles.rubicMedium,
-                {fontSize: 13, color: colors.myGrayDark},
-              ]}>
-              {translate('languageModal.selectLanguage')}
-            </Text>
+            <Title>{translate('languageModal.selectLanguage')}</Title>
             <TouchableOpacity
-              style={[{borderRadius: 5}]}
+              style={[
+                {
+                  padding: '2%',
+                  backgroundColor: colors.primary,
+                  borderRadius: 10,
+                },
+              ]}
               onPress={() => EventRegister.emit('languageModal', false)}>
               <AntDesign
                 style={{}}
-                color={colors.myGrayDark}
+                color={colors.white}
                 name="close"
-                size={22}
+                size={20}
               />
             </TouchableOpacity>
           </View>
@@ -75,8 +83,8 @@ export default class LanguageModal extends Component {
                       index={i}
                       isSelected={this.state.selected === i}
                       borderWidth={2}
-                      buttonInnerColor={colors.primary2}
-                      buttonOuterColor={colors.myLightGray}
+                      buttonInnerColor={colors.primary}
+                      buttonOuterColor={colors.primary}
                       onPress={async value => {
                         this.setState({selected: i});
                         await changeLanguage(value);
@@ -96,7 +104,7 @@ export default class LanguageModal extends Component {
                       labelHorizontal={true}
                       labelStyle={[
                         basicStyles.rubicMedium,
-                        {color: colors.myGray, fontSize: 11},
+                        {color: colors.myGray, fontSize: 13, padding: '2%'},
                       ]}
                     />
                   </RadioButton>
