@@ -3,7 +3,7 @@
     "selectLanguage": "انتخاب زبان"
   },
   "home": {
-    "hi": "سلام"
+    "welcom": "به روباه قرمز خوش آمدید"
   },
   "loading": {
     "please_waite": "لطفا کمی صبر کنید"
@@ -25,6 +25,6 @@
     "email": "mail@email.com",
     "profile": "پروفایل",
     "preferences": "ترجیح",
-    "dark-theme":"حالت تیره"
+    "dark-theme": "حالت تیره"
   }
 }

@@ -41,10 +41,10 @@ const customDarkTheme = {
   colors: {
     ...NavigatorDarkTheme.colors,
     ...PapaerDarkTheme.colors,
-    background: colors.gray,
-    text: colors.somkeWhite,
-    primary: '#3498db',
-    accent: '#f1c40f',
+    background: colors.grayDark,
+    text: colors.white,
+    primary: colors.white,
+    accent: colors.accent,
   },
 };
 
@@ -132,22 +132,18 @@ export default class App extends React.Component {
       this.state.isAuthenticated,
       this.state.isFirstTime,
     );
-
     let theme = this.state.isDarkTheme ? customDarkTheme : customDefaultTheme;
 
-    if (this.state.isLoading) {
-      return <Splash />;
-    } else {
-      return (
-        <Root>
-          <LoadingModal isLoading={this.state.loading} />
-          <PapaerProvider theme={theme}>
-            <NavigationContainer theme={theme}>
-              {rootNavigator}
-            </NavigationContainer>
-          </PapaerProvider>
-        </Root>
-      );
-    }
+    return (
+      <Root>
+        <LoadingModal isLoading={this.state.loading} />
+        <PapaerProvider theme={theme}>
+          <NavigationContainer theme={theme}>
+            {this.state.isLoading ? <Splash /> : rootNavigator}
+            {/* {rootNavigator} */}
+          </NavigationContainer>
+        </PapaerProvider>
+      </Root>
+    );
   }
 }

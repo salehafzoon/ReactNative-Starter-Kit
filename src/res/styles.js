@@ -15,7 +15,6 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   arialDarkGrayText: {
-    color: colors.myGray,
     fontFamily: 'Arial_Rounded_MT_Bold',
     fontSize: 15,
     textAlign: 'center',
@@ -28,35 +27,29 @@ export default StyleSheet.create({
     fontFamily: 'Rubik-Medium',
   },
   arialDarkerGrayText: {
-    color: colors.grayDarker,
     fontFamily: 'Arial_Rounded_MT_Bold',
     fontWeight: 'bold',
   },
   rubicMedium: {
-    color: colors.myGray,
     fontFamily: 'Rubik-Medium',
     fontSize: 15,
   },
   rubicRegular: {
-    color: colors.gray,
     fontFamily: 'Rubik-Regular',
     fontSize: 15,
     textAlign: 'center',
   },
   rubicBold: {
-    color: colors.myGray,
     fontFamily: 'Rubik-Bold',
     fontWeight:'bold',
     fontSize: 15,
   },
   rubicLight: {
-    color: colors.myGray,
     fontFamily: 'Rubik-Light',
     fontSize: 15,
     textAlign: 'center',
   },
   smallgrayText: {
-    color: colors.gray,
     fontFamily: 'IRANSans',
     fontSize: 13,
   },
