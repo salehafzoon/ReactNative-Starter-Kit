@@ -41,12 +41,21 @@ export default class Profile extends Component {
         name: 'sample',
         email: 'mail@gmail.com',
         username: 'username',
+        imageSrc: null,
       },
+      imageSrc: null,
       newPassword: '',
       confirmPassword: '',
       edited: false,
       avatar: null,
     };
+    this.pickImageListener = EventRegister.addEventListener(
+      'pickImage',
+      source => {
+        console.warn(source);
+        this.setState({imageSrc: source});
+      },
+    );
     this.sheetRef = React.createRef();
     this.fall = new Animated.Value(1);
 
@@ -122,7 +131,13 @@ export default class Profile extends Component {
               ]}>
               <View style={styles.profImageCont}>
                 <Image
-                  source={images.foxy3}
+                  source={
+                    This.state.imageSrc == null
+                      ? images.foxy3
+                      : {
+                          uri: This.state.imageSrc,
+                        }
+                  }
                   style={{
                     borderRadius: 100,
                     width: 100,

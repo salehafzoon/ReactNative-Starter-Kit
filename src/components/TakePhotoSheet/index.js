@@ -6,6 +6,7 @@ import colors from '../../res/colors';
 import {translate} from '../../utils/localize';
 import styles from './styles';
 import ImagePicker from 'react-native-image-crop-picker';
+import {EventRegister} from 'react-native-event-listeners';
 
 export default class TakePhotoSheet extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class TakePhotoSheet extends Component {
       cropping: true,
     }).then(image => {
       console.log(image);
+      EventRegister.emit('pickImage', image.path);
     });
   }
   choosePhoto() {
@@ -30,6 +32,7 @@ export default class TakePhotoSheet extends Component {
       cropping: true,
     }).then(image => {
       console.log(image);
+      EventRegister.emit('pickImage', image.path);
     });
   }
 
