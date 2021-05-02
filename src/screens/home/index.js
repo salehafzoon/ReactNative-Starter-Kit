@@ -21,8 +21,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {Text} from 'react-native-paper';
 
-const {Height} = Dimensions.get('screen');
-
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -43,10 +41,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View
-        style={{flex: 1}}
-        //  style={{backgroundColor: theme.colors.background}}
-      >
+      <View style={{flex: 1}}>
         <LanguageModal
           isOpen={this.state.languageModalOpen}
           close={() => this.setState({languageModalOpen: false})}
@@ -58,17 +53,9 @@ export default class Home extends Component {
         />
 
         <View
-          style={{
-            flex: 1,
-            alignContent: 'center',
-          }}>
+          style={styles.content}>
           <Button
-            style={{
-              backgroundColor: colors.primary,
-              margin: '5%',
-              paddingHorizontal: '2%',
-              borderRadius: 10,
-            }}
+            style={styles.menuBtn}
             onPress={() =>
               this.props.navigation.dispatch(DrawerActions.openDrawer())
             }>
@@ -81,14 +68,7 @@ export default class Home extends Component {
               style={{alignSelf: 'center', width: 150, height: 150}}
             />
             <Text
-              style={[
-                globalStyles.rubicBold,
-                {
-                  fontSize: 20,
-                  marginVertical: '1%',
-                  textAlign: 'center',
-                },
-              ]}>
+              style={styles.appTitle}>
               {translate('home.welcom')}
             </Text>
           </View>

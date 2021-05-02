@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { MEDUM_FONT } from '../../constants';
 import colors from '../../res/colors';
 
 export default class TabItem extends Component {
@@ -11,7 +12,6 @@ export default class TabItem extends Component {
         style={{
           alignItems: 'center',
           justifyContent: 'center',
-        //   marginTop: '2%',
         }}>
         <Ionicons
           name={this.props.icon}
@@ -22,6 +22,7 @@ export default class TabItem extends Component {
           style={{
             color: This.props.isFocused ? colors.primary : colors.grayDark,
             fontSize: 11,
+            fontFamily:MEDUM_FONT
           }}>
           {this.props.name}
         </Text>

@@ -22,5 +22,6 @@ export const translate = words => {
 };
 
 export const localLang = () => {
-  return i18n.defaultLocale();
+  console.warn(i18n.locale)
+  return i18n.locale;
 };

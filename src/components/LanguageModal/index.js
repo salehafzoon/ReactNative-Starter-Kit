@@ -4,10 +4,10 @@ import {View, FlatList, ScrollView, TouchableOpacity} from 'react-native';
 import colors from '../../res/colors';
 import basicStyles from '../../res/styles';
 
-import {List, Button, Card} from 'native-base';
+import {List, Button} from 'native-base';
 
 import Modal from 'react-native-modal';
-import {translate, changeLanguage} from '../../utils/localize';
+import {translate, changeLanguage, localLang} from '../../utils/localize';
 import styles from './style';
 
 import RadioForm, {
@@ -15,19 +15,20 @@ import RadioForm, {
   RadioButtonInput,
   RadioButtonLabel,
 } from 'react-native-simple-radio-button';
-import {Text, Title} from 'react-native-paper';
+import {Text, Title, Card} from 'react-native-paper';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {EventRegister} from 'react-native-event-listeners';
+import {BOLD_FONT} from '../../constants';
 export default class LanguageModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [
-        {label: 'English', value: 'en'},
-        {label: 'Persian', value: 'pr'},
+        {label: translate('languageModal.english'), value: 'en'},
+        {label: translate('languageModal.persian'), value: 'pr'},
       ],
-      selected: 0,
+      selected: localLang() == 'en' ? 0 : 1,
     };
   }
   render() {
@@ -44,17 +45,10 @@ export default class LanguageModal extends Component {
             marginVertical: '2%',
             borderRadius: 15,
           }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              paddingHorizontal: '6%',
-              paddingVertical: '4%',
-              borderBottomWidth: 2,
-              borderBottomColor: colors.grayLight,
-            }}>
-            <Title>{translate('languageModal.selectLanguage')}</Title>
+          <View style={styles.titleStyle}>
+            <Title style={{fontFamily: BOLD_FONT}}>
+              {translate('languageModal.selectLanguage')}
+            </Title>
             <TouchableOpacity
               style={[
                 {
@@ -73,7 +67,7 @@ export default class LanguageModal extends Component {
             </TouchableOpacity>
           </View>
 
-          <ScrollView style={{margin: 0}}>
+          <ScrollView style={{margin: '3%'}}>
             <RadioForm>
               {this.state.data.map((obj, i) => (
                 <View style={{margin: '2%'}}>
@@ -90,10 +84,10 @@ export default class LanguageModal extends Component {
                         await changeLanguage(value);
                         EventRegister.emit('languageModal', false);
                       }}
-                      buttonSize={10}
-                      buttonOuterSize={20}
+                      buttonSize={16}
+                      buttonOuterSize={26}
                       buttonStyle={{}}
-                      buttonWrapStyle={{marginLeft: '5%'}}
+                      buttonWrapStyle={{marginLeft: '5%', marginTop: '1%'}}
                     />
                     <RadioButtonLabel
                       obj={obj}
@@ -101,11 +95,11 @@ export default class LanguageModal extends Component {
                       onPress={async value => {
                         this.setState({selected: i});
                         await changeLanguage(value);
-                        EventRegister.emit('languageModal', false)
+                        EventRegister.emit('languageModal', false);
                       }}
                       labelHorizontal={true}
                       labelStyle={[
-                        basicStyles.rubicMedium,
+                        basicStyles.mediumTXT,
                         {color: colors.myGray, fontSize: 13, padding: '2%'},
                       ]}
                     />

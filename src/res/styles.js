@@ -1,94 +1,24 @@
+import {useTheme} from 'react-native-paper';
 import {StyleSheet} from 'react-native';
 import colors from './colors';
+import {BOLD_FONT, LIGHT_FONT, MEDUM_FONT, NORMAL_FONT} from '../constants';
 
 export default StyleSheet.create({
-  grayText: {
-    color: colors.gray,
-    fontFamily: 'IRANSans',
-    fontSize: 16,
+  normalTXT: {
+    fontFamily: NORMAL_FONT,
     textAlign: 'center',
   },
-  arialGrayText: {
-    color: colors.myGrayIcon,
-    fontFamily: 'Arial_Rounded_MT_Bold',
-    fontSize: 15,
+  mediumTXT: {
+    fontFamily: MEDUM_FONT,
     textAlign: 'center',
   },
-  arialDarkGrayText: {
-    fontFamily: 'Arial_Rounded_MT_Bold',
-    fontSize: 15,
+  boldTxt: {
+    fontFamily: BOLD_FONT,
     textAlign: 'center',
   },
-
-  backgroudnText: {
-    fontSize: 24,
-    alignSelf: 'stretch',
-    fontFamily: 'Rubik-Medium',
-  },
-  arialDarkerGrayText: {
-    fontFamily: 'Arial_Rounded_MT_Bold',
-    fontWeight: 'bold',
-  },
-  rubicMedium: {
-    fontFamily: 'Rubik-Medium',
-    fontSize: 15,
-  },
-  rubicRegular: {
-    fontFamily: 'Rubik-Regular',
-    fontSize: 15,
+  lightTxt: {
+    fontFamily: LIGHT_FONT,
     textAlign: 'center',
-  },
-  rubicBold: {
-    fontFamily: 'Rubik-Bold',
-    fontWeight:'bold',
-    fontSize: 15,
-  },
-  rubicLight: {
-    fontFamily: 'Rubik-Light',
-    fontSize: 15,
-    textAlign: 'center',
-  },
-  smallgrayText: {
-    fontFamily: 'IRANSans',
-    fontSize: 13,
-  },
-  blackTitle: {
-    color: 'black',
-    fontFamily: 'IRANSans_Bold',
-    fontSize: 15,
-    textAlign: 'center',
-    padding: 5,
-    alignContent: 'center',
-    alignItems: 'center',
-  },
-  titleCard: {
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
-    backgroundColor: colors.primary,
-    alignSelf: 'baseline',
-  },
-  whiteBigTitle: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 18,
-    padding: 5,
-    alignContent: 'center',
-    alignItems: 'center',
-  },
-  primaryBigTitle: {
-    color: colors.primary,
-    fontWeight: 'bold',
-    fontSize: 18,
-    padding: 5,
-    alignContent: 'center',
-    alignItems: 'center',
-  },
-  primaryText: {
-    color: colors.primary,
-    fontSize: 13,
-    padding: 5,
-    alignContent: 'center',
-    alignItems: 'center',
   },
   blackBigTitle: {
     color: 'black',
@@ -97,6 +27,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     alignContent: 'center',
     alignItems: 'center',
+    fontFamily: NORMAL_FONT,
   },
 
   card: {
@@ -106,6 +37,7 @@ export default StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: 1,
     elevation: 7,
+    fontFamily: NORMAL_FONT,
   },
   chips: {
     color: 'white',
@@ -119,9 +51,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignContent: 'center',
+    fontFamily: NORMAL_FONT,
   },
   primaryBtn: {
     color: 'white',
     backgroundColor: colors.primary,
+    fontFamily: NORMAL_FONT,
   },
 });

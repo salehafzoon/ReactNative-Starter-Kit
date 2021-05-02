@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Image} from 'react-native';
-import {Text, Card} from 'react-native-paper';
+import {Text, Card, Avatar} from 'react-native-paper';
 import {
   Container,
   Content,
@@ -91,14 +91,7 @@ export default class Profile extends Component {
             }}>
             <Button
               transparent
-              style={{
-                marginHorizontal: '5%',
-                marginTop: '5%',
-                marginBottom: '2%',
-                backgroundColor: colors.primary,
-                paddingHorizontal: '2%',
-                borderRadius: 10,
-              }}
+              style={styles.backBtn}
               onPress={() => this.props.navigation.goBack(null)}>
               <Ionicons
                 name="ios-arrow-back-circle-outline"
@@ -107,31 +100,17 @@ export default class Profile extends Component {
               />
             </Button>
 
-            <View style={{flex: 1}}>
-              <Text
-                style={[
-                  basicStyles.backgroudnText,
-                  {
-                    marginTop: '2%',
-                    marginHorizontal: '5%',
-                    marginBottom: '1%',
-                  },
-                ]}>
+            <View>
+              <Text style={styles.editTitle}>
                 {translate('profile.editProfile')}
               </Text>
             </View>
           </View>
           <View>
-            <View
-              style={[
-                styles.imageStyle,
-                {
-                  alignSelf: 'center',
-                  marginVertical: '4%',
-                },
-              ]}>
+            <View style={[styles.imageStyle]}>
               <View style={styles.profImageCont}>
-                <Image
+                <Avatar.Image
+                  size={90}
                   source={
                     This.state.imageSrc == null
                       ? images.foxy3
@@ -139,12 +118,6 @@ export default class Profile extends Component {
                           uri: This.state.imageSrc,
                         }
                   }
-                  style={{
-                    borderRadius: 100,
-                    width: 100,
-                    height: 100,
-                    alignSelf: 'center',
-                  }}
                 />
               </View>
             </View>
@@ -154,9 +127,8 @@ export default class Profile extends Component {
                 styles.profImageCont,
                 {
                   alignSelf: 'center',
-                  alignItems: 'center',
-                  marginTop: '-14%',
-                  marginLeft: '18%',
+                  marginTop: '-13%',
+                  marginLeft: '22%',
                 },
               ]}>
               <TouchableOpacity
@@ -168,12 +140,7 @@ export default class Profile extends Component {
                   name="camera"
                   size={22}
                   color="white"
-                  style={{
-                    borderRadius: 30,
-                    paddingVertical: '1.4%',
-                    padding: '1%',
-                    backgroundColor: colors.primary,
-                  }}
+                  style={styles.cameraIconStyle}
                 />
               </TouchableOpacity>
             </View>
@@ -217,18 +184,7 @@ export default class Profile extends Component {
             </ScrollView>
           </View>
 
-          <Card
-            style={{
-              width: '100%',
-              height: '8%',
-              position: 'absolute',
-              bottom: '3%',
-              alignSelf: 'center',
-              borderRadius: 13,
-              marginHorizontal: '16%',
-              zIndex: -2,
-              // backgroundColor: colors.somkeWhite,
-            }}>
+          <Card style={styles.buttonCard}>
             <Button
               full
               transparent
@@ -237,9 +193,8 @@ export default class Profile extends Component {
               onPress={this.saveChanges}>
               <Text
                 style={[
-                  basicStyles.rubicMedium,
+                  basicStyles.boldTxt,
                   {
-                    justifyContent: 'center',
                     color:
                       This.state.edited == true ? colors.primary : colors.gray,
                     fontSize: 15,

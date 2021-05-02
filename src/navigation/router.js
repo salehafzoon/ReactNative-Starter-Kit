@@ -13,6 +13,7 @@ import DrawerContent from '../components/DrawerContent';
 import {Left} from 'native-base';
 import {StyleSheet} from 'react-native';
 import TabItem from '../components/TabItem';
+import {translate} from '../utils/localize';
 
 const Stack = createStackNavigator();
 const SignedOut = () => {
@@ -31,13 +32,17 @@ const TabScreen = () => {
         showLabel: false,
         style: styles.bottonTab,
       }}>
-        
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <TabItem name="Home" icon="ios-home" size = {30}isFocused={focused} />
+            <TabItem
+              name={translate('tab.home')}
+              icon="ios-home"
+              size={30}
+              isFocused={focused}
+            />
           ),
         }}
       />
@@ -46,7 +51,12 @@ const TabScreen = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({focused}) => (
-            <TabItem name="Profile" icon="person-circle" size = {34}isFocused={focused} />
+            <TabItem
+              name={translate('tab.profile')}
+              icon="person-circle"
+              size={34}
+              isFocused={focused}
+            />
           ),
         }}
       />

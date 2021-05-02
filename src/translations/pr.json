@@ -1,6 +1,8 @@
 {
   "languageModal": {
-    "selectLanguage": "انتخاب زبان"
+    "selectLanguage": "انتخاب زبان",
+    "english": "انگلیسی",
+    "persian": "فارسی"
   },
   "home": {
     "welcom": "به روباه قرمز خوش آمدید"
@@ -48,5 +50,9 @@
   },
   "splash": {
     "app-title": "روباه قرمز"
+  },
+  "tab": {
+    "home": "خانه",
+    "profile": "پروفایل"
   }
 }

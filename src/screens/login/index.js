@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import React, {Component} from 'react';
+import {View, Image, TouchableOpacity} from 'react-native';
 import {
   Container,
   Header,
@@ -12,20 +12,21 @@ import {
 } from 'native-base';
 
 import firebaseM from '@react-native-firebase/messaging';
-import { firebase } from '@react-native-firebase/crashlytics';
 import colors from '../../res/colors';
 import MatComIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
-import { translate } from '../../utils/localize';
-import { EventRegister } from 'react-native-event-listeners';
+import {translate} from '../../utils/localize';
+import {EventRegister} from 'react-native-event-listeners';
 // import { login } from '../../utils/APIUtils';
-import { ACCESS_TOKEN } from '../../constants';
+import {ACCESS_TOKEN} from '../../constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GrayInputItem from '../../components/GrayInputItem';
 
 import globalStyles from '../../res/styles';
+
+import {Text} from 'react-native-paper';
+import styles from './styles';
 
 export default class Login extends Component {
   constructor(props) {
@@ -39,24 +40,23 @@ export default class Login extends Component {
     this.doLogin = this.doLogin.bind(this);
   }
 
-
   doLogin = async () => {
-    console.warn("doing login");
+    console.warn('doing login');
     EventRegister.emit('loading', true);
     let getToken = null;
     try {
-      getToken = await firebaseM().getToken();  
+      getToken = await firebaseM().getToken();
     } catch (error) {
-      console.log("[firebaseToken]")
-      console.log(error)
+      console.log('[firebaseToken]');
+      console.log(error);
     }
-    
+
     let data = {
       username: this.state.email,
       password: this.state.password,
-      userId: this.state.userId
+      userId: this.state.userId,
     };
-    console.log(data)
+    console.log(data);
     if (getToken != null && getToken != undefined) {
       data.token = getToken;
     }
@@ -86,11 +86,11 @@ export default class Login extends Component {
 
   render() {
     return (
-      <Container style={{ flex: 1, backgroundColor: colors.backGray }}>
+      <Container style={{flex: 1, backgroundColor: colors.backGray}}>
         <Header
           androidStatusBarColor={colors.primary}
           iosBarStyle={colors.primary}
-          style={{ display: 'none' }}
+          style={{display: 'none'}}
         />
         <Content style={{}}>
           <View
@@ -98,33 +98,17 @@ export default class Login extends Component {
               marginTop: '30%',
               marginBottom: '10%',
             }}>
-            <Text
-              style={[
-                globalStyles.rubicBold,
-                {
-                  fontSize: 20,
-                  marginVertical: '1%',
-                  textAlign: 'center',
-                  color: 'black',
-                },
-              ]}>
-              {translate('login.app_title')}
-            </Text>
-            <Text
-              style={[
-                globalStyles.rubicRegular,
-                ,
-                { fontSize: 14, marginTop: '2%' },
-              ]}>
+            <Text style={styles.title}>{translate('login.app_title')}</Text>
+            <Text style={styles.welcom}>
               {translate('login.app_description')}
             </Text>
           </View>
-          <Form style={{ marginHorizontal: '8%' }}>
+          <Form style={{marginHorizontal: '8%'}}>
             <GrayInputItem
               title={'email'}
               keyboardType={'email-address'}
               onChange={value => {
-                this.setState({ email: value });
+                this.setState({email: value});
               }}
               placeholder={'enter_you_username'}
               icon={null}
@@ -133,38 +117,17 @@ export default class Login extends Component {
               secureTextEntry={true}
               title={'password'}
               onChange={value => {
-                this.setState({ password: value });
+                this.setState({password: value});
               }}
               placeholder={'enter_you_password'}
               icon={
-                <View style={{}}>
-                  <MatComIcons
-                    color={colors.gray}
-                    name="lock"
-                    size={20}
-                  />
+                <View>
+                  <MatComIcons color={colors.gray} name="lock" size={20} />
                 </View>
               }
             />
-            <Button
-              block
-              onPress={this.doLogin}
-              style={{
-                backgroundColor: colors.primary,
-                marginTop: '4%',
-                borderRadius: 25,
-              }}>
-              <Text
-                style={[
-                  globalStyles.arialDarkGrayText,
-                  {
-                    color: colors.white,
-                    fontSize: 14,
-                    textAlign: 'center',
-                  },
-                ]}>
-                {translate('login.login')}
-              </Text>
+            <Button block onPress={this.doLogin} style={styles.loginBtn}>
+              <Text style={styles.loginTxt}>{translate('login.login')}</Text>
             </Button>
             <TouchableOpacity
               style={{
@@ -172,22 +135,10 @@ export default class Login extends Component {
                 marginTop: '6%',
                 borderRadius: 3,
               }}>
-              <Text
-                style={[
-                  globalStyles.rubicMedium,
-                  {
-                    fontSize: 14,
-                    textAlign: 'center',
-                    color: colors.gray,
-                    margin: '1%',
-                  },
-                ]}>
+              <Text style={styles.welcom}>
                 {translate('login.forgot_password')}
               </Text>
             </TouchableOpacity>
-            
-            
-           
           </Form>
         </Content>
       </Container>

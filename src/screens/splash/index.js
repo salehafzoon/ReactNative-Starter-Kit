@@ -7,6 +7,7 @@ import {translate} from '../../utils/localize';
 import styles from './style';
 import globalStyles from '../../res/styles';
 import {Spinner, Header} from 'native-base';
+import {BOLD_FONT, MEDUM_FONT} from '../../constants';
 
 export default class Splash extends Component {
   constructor(properties) {
@@ -53,8 +54,8 @@ export default class Splash extends Component {
             <Animatable.View animation="fadeIn" delay={300}>
               <Text
                 style={[
-                  globalStyles.rubicBold,
                   {
+                    fontFamily: MEDUM_FONT,
                     fontSize: 20,
                     marginVertical: '1%',
                     textAlign: 'center',

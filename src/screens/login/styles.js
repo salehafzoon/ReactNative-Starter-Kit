@@ -1,7 +1,25 @@
 import {StyleSheet} from 'react-native';
+import {BOLD_FONT, MEDUM_FONT, NORMAL_FONT} from '../../constants';
 import colors from '../../res/colors';
 
 const styles = StyleSheet.create({
+  loginTxt: {
+    fontFamily:MEDUM_FONT,
+    color: colors.white,
+    fontSize: 17,
+    textAlign: 'center',
+  },
+  loginBtn: {
+    backgroundColor: colors.primary,
+    marginTop: '4%',
+    borderRadius: 25,
+  },
+  welcom: {
+    fontFamily: NORMAL_FONT,
+    fontSize: 14,
+    marginTop: '2%',
+    alignSelf: 'center',
+  },
   container: {
     flex: 1,
     alignContent: 'center',
@@ -24,8 +42,8 @@ const styles = StyleSheet.create({
     margin: 7,
     color: colors.primary,
     textAlign: 'center',
-    fontSize: 18,
-    fontFamily: 'IRANSans_Bold',
+    fontSize: 24,
+    fontFamily: BOLD_FONT,
   },
   darkGrayText: {
     color: colors.myGrayDark,

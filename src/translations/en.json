@@ -1,6 +1,9 @@
 {
   "languageModal": {
-    "selectLanguage": "Select language"
+    "selectLanguage": "Select language",
+    "english":"English",
+    "persian":"Persian"
+
   },
   "home": {
     "welcom": "Welcom to Red Foxy"
@@ -48,5 +51,9 @@
   },
   "splash": {
     "app-title": "Red Foxy"
+  },
+  "tab":{
+    "home":"Home",
+    "profile":"Profile"
   }
 }

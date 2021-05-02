@@ -22,6 +22,7 @@ import {translate} from '../../utils/localize';
 import images from '../../res/images';
 import colors from '../../res/colors';
 import {Button, Card} from 'native-base';
+import {NORMAL_FONT} from '../../constants';
 
 export default class DrawerContent extends Component {
   constructor(props) {
@@ -92,8 +93,9 @@ export default class DrawerContent extends Component {
                   </View>
                 </View>
               </TouchableRipple>
-              <TouchableOpacity style={styles.preference}
-              onPress={()=>EventRegister.emit('languageModal', true)}>
+              <TouchableOpacity
+                style={styles.preference}
+                onPress={() => EventRegister.emit('languageModal', true)}>
                 <Text style={{marginLeft: '5%'}}>
                   {translate('drawer.language')}
                 </Text>
