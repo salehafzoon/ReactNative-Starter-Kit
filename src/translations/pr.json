@@ -25,7 +25,8 @@
     "email": "mail@email.com",
     "profile": "پروفایل",
     "preferences": "ترجیح",
-    "dark-theme": "حالت تیره"
+    "dark-theme": "حالت تیره",
+    "language": "زبان"
   },
   "profile": {
     "title": "مشخصات کاربری",

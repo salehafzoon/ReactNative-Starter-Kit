@@ -54,6 +54,7 @@ export default class Profile extends Component {
       source => {
         console.warn(source);
         this.setState({imageSrc: source});
+        this.sheetRef.current.snapTo(1);
       },
     );
     this.sheetRef = React.createRef();
@@ -185,7 +186,7 @@ export default class Profile extends Component {
                   style={styles.inputStyle}
                   editable={false}
                   value={this.state.user.firstname}
-                  placeholder={'First name'}
+                  placeholder={translate('profile.firstName')}
                   onChangeText={text => this.setState({'user.firstname': text})}
                 />
               </View>
@@ -209,7 +210,7 @@ export default class Profile extends Component {
                   editable={false}
                   style={styles.inputStyle}
                   value={this.state.user.username}
-                  placeholder={this.state.user.username}
+                  placeholder={translate('profile.username')}
                   onChangeText={text => this.setState({'user.username': text})}
                 />
               </View>

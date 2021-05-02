@@ -88,6 +88,7 @@ export default class LanguageModal extends Component {
                       onPress={async value => {
                         this.setState({selected: i});
                         await changeLanguage(value);
+                        EventRegister.emit('languageModal', false);
                       }}
                       buttonSize={10}
                       buttonOuterSize={20}
@@ -100,6 +101,7 @@ export default class LanguageModal extends Component {
                       onPress={async value => {
                         this.setState({selected: i});
                         await changeLanguage(value);
+                        EventRegister.emit('languageModal', false)
                       }}
                       labelHorizontal={true}
                       labelStyle={[
