@@ -1,7 +1,7 @@
 import {useTheme} from 'react-native-paper';
 import React, {Component} from 'react';
 import {TouchableOpacity, View} from 'react-native';
-import {Text} from 'react-native-paper';
+import {Text,Card} from 'react-native-paper';
 import colors from '../../res/colors';
 import {translate} from '../../utils/localize';
 import styles from './styles';
@@ -14,18 +14,11 @@ export default class TakePhotoSheet extends Component {
 
   render() {
     return (
-      <View
+      <Card
         style={{
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
           paddingBottom: '50%',
-          shadowColor: colors.gray,
-          shadowOpacity: '0.4',
-          shadowRadius: 30,
-          shadowOffset: {
-            width: -1,
-            height: -2,
-          },
         }}>
         <View
           style={{
@@ -49,7 +42,7 @@ export default class TakePhotoSheet extends Component {
             {translate('photo.choose-from-album')}
           </Text>
         </TouchableOpacity>
-      </View>
+      </Card>
     );
   }
 }

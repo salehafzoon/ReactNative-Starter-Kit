@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Image} from 'react-native';
-import {Text} from 'react-native-paper';
+import {Text, Card} from 'react-native-paper';
 import {
   Container,
   Content,
@@ -67,37 +67,44 @@ export default class Profile extends Component {
   render() {
     let This = this;
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, height: '100%'}}>
         <Header
           androidStatusBarColor={colors.primary}
           iosBarStyle={colors.primary}
           style={{display: 'none'}}
         />
-        <Content style={{flex: 1}}>
+        <View style={{flex: 1, height: '100%'}}>
           <View
             style={{
-              backgroundColor: colors.primary,
               borderBottomLeftRadius: 30,
               borderBottomRightRadius: 30,
             }}>
-            <TouchableOpacity
+            <Button
               transparent
-              style={{marginHorizontal: '5%', marginVertical: '2%'}}
+              style={{
+                marginHorizontal: '5%',
+                marginTop: '5%',
+                marginBottom: '2%',
+                backgroundColor: colors.primary,
+                paddingHorizontal: '2%',
+                borderRadius: 10,
+              }}
               onPress={() => this.props.navigation.goBack(null)}>
               <Ionicons
                 name="ios-arrow-back-circle-outline"
-                size={40}
+                size={30}
                 color={colors.white}
               />
-            </TouchableOpacity>
+            </Button>
 
             <View style={{flex: 1}}>
               <Text
                 style={[
                   basicStyles.backgroudnText,
                   {
-                    marginHorizontal: '4%',
-                    marginBottom: '3%',
+                    marginTop: '2%',
+                    marginHorizontal: '5%',
+                    marginBottom: '1%',
                   },
                 ]}>
                 {translate('profile.editProfile')}
@@ -130,10 +137,9 @@ export default class Profile extends Component {
               style={[
                 styles.profImageCont,
                 {
-                  flex: 1,
                   alignSelf: 'center',
                   alignItems: 'center',
-                  marginTop: '-15%',
+                  marginTop: '-14%',
                   marginLeft: '18%',
                 },
               ]}>
@@ -148,8 +154,8 @@ export default class Profile extends Component {
                   color="white"
                   style={{
                     borderRadius: 30,
-                    paddingVertical: '0.9%',
-                    padding: '0.6%',
+                    paddingVertical: '1.4%',
+                    padding: '1%',
                     backgroundColor: colors.primary,
                   }}
                 />
@@ -194,48 +200,55 @@ export default class Profile extends Component {
               </View>
             </ScrollView>
           </View>
-        </Content>
+
+          <Card
+            style={{
+              width: '100%',
+              height: '8%',
+              position: 'absolute',
+              bottom: '3%',
+              alignSelf: 'center',
+              borderRadius: 13,
+              marginHorizontal: '16%',
+              zIndex: -2,
+              // backgroundColor: colors.somkeWhite,
+            }}>
+            <Button
+              full
+              transparent
+              style={{justifyContent: 'center'}}
+              disabled={!this.state.edited}
+              onPress={this.saveChanges}>
+              <Text
+                style={[
+                  basicStyles.rubicMedium,
+                  {
+                    justifyContent: 'center',
+                    color:
+                      This.state.edited == true ? colors.primary : colors.gray,
+                    fontSize: 15,
+                  },
+                ]}>
+                {translate('profile.saveChanges')}
+              </Text>
+            </Button>
+          </Card>
+        </View>
 
         <BottomSheet
           style={{
             position: 'absolute',
             bottom: 0,
-            zIndex: 1,
+            zIndex: 10,
           }}
           ref={This.sheetRef}
-          snapPoints={[320, 0]}
+          snapPoints={[330, 0]}
           initialSnap={1}
           borderRadius={10}
           callbackNode={This.fall}
           enabledGestureInteraction={true}
           renderContent={() => <TakePhotoSheet />}
         />
-
-        <Footer
-          style={{
-            // position: 'absolute',
-            // bottom: 0,
-            zIndex: -1,
-          }}>
-          <Button
-            full
-            success
-            disabled={!this.state.edited}
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
-            backgroundColor={colors.primary}
-            onPress={this.saveChanges}>
-            <Text
-              style={[
-                basicStyles.rubicMedium,
-                {justifyContent: 'center', color: 'white', fontSize: 15},
-              ]}>
-              {translate('profile.saveChanges')}
-            </Text>
-          </Button>
-        </Footer>
       </View>
     );
   }

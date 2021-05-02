@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   title: {
-    color: 'black',
+    // color: 'black',
     fontFamily: 'Rubik-Bold',
     fontWeight: 'bold',
     fontSize: 19,

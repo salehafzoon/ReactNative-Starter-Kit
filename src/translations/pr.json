@@ -44,5 +44,8 @@
     "edit-photo": "ویرایش عکس",
     "choose-your-profile-photo": "عکس کاربری خود را انتخاب کنید",
     "cancel": "خروج"
+  },
+  "splash": {
+    "app-title": "روباه قرمز"
   }
 }

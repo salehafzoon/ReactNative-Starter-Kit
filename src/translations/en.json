@@ -45,5 +45,8 @@
     "edit-photo": "Edit Photo",
     "choose-your-profile-photo": "Choose Your Profile Photo",
     "cancel": "Cancel"
+  },
+  "splash": {
+    "app-title": "Red Foxy"
   }
 }
