@@ -1,15 +1,36 @@
 import {useTheme} from 'react-native-paper';
 import React, {Component} from 'react';
 import {TouchableOpacity, View} from 'react-native';
-import {Text,Card} from 'react-native-paper';
+import {Text, Card} from 'react-native-paper';
 import colors from '../../res/colors';
 import {translate} from '../../utils/localize';
 import styles from './styles';
+import ImagePicker from 'react-native-image-crop-picker';
+
 export default class TakePhotoSheet extends Component {
-  
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {};
+    this.takePhoto = this.takePhoto.bind(this);
+    this.takePhoto = this.takePhoto.bind(this);
+  }
+  takePhoto() {
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      console.log(image);
+    });
+  }
+  choosePhoto() {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      console.log(image);
+    });
   }
 
   render() {
@@ -34,10 +55,10 @@ export default class TakePhotoSheet extends Component {
         <Text style={styles.subtitle}>
           {translate('photo.choose-your-profile-photo')}
         </Text>
-        <TouchableOpacity style={styles.primaryBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.primaryBtn} onPress={this.takePhoto}>
           <Text style={styles.whiteText}>{translate('photo.take-photo')}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.primaryBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.primaryBtn} onPress={this.choosePhoto}>
           <Text style={styles.whiteText}>
             {translate('photo.choose-from-album')}
           </Text>

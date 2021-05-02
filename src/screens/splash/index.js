@@ -61,7 +61,7 @@ export default class Splash extends Component {
                     color: colors.grayDark,
                   },
                 ]}>
-                {translate('splash.app_title')}
+                Red Foxy
               </Text>
               <Spinner color={colors.primary} />
             </Animatable.View>
