@@ -1,3 +1,5 @@
+import {React} from 'react'
+
 import {localLang} from '../utils/localize';
 
 export const API_BASE_URL = 'https://hrms.delinternet.com/';

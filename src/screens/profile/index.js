@@ -40,7 +40,7 @@ export default class Profile extends Component {
       user: {
         name: 'sample',
         email: 'mail@gmail.com',
-        username: 'username',
+        username: '',
         imageSrc: null,
       },
       imageSrc: null,

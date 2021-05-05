@@ -28,7 +28,7 @@ export default class LanguageModal extends Component {
         {label: translate('languageModal.english'), value: 'en'},
         {label: translate('languageModal.persian'), value: 'pr'},
       ],
-      selected: localLang() == 'en' ? 0 : 1,
+      selected: localLang() === 'en' ? 0 : 1,
     };
   }
   render() {

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { BOLD_FONT, MEDUM_FONT, NORMAL_FONT } from '../../constants';
 import colors from '../../res/colors';
 
 const styles = StyleSheet.create({
@@ -14,13 +15,13 @@ const styles = StyleSheet.create({
   },
   whiteText: {
     color: colors.white,
-    fontFamily: 'Rubik-Regular',
+    fontFamily: MEDUM_FONT,
     fontSize: 14,
     textAlign: 'center',
   },
   title: {
     // color: 'black',
-    fontFamily: 'Rubik-Bold',
+    fontFamily: BOLD_FONT,
     fontWeight: 'bold',
     fontSize: 19,
     textAlign: 'center',
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     color: colors.gray,
-    fontFamily: 'Rubik-Regular',
+    fontFamily: NORMAL_FONT,
     fontSize: 14,
     textAlign: 'center',
     paddingTop: '1%',
