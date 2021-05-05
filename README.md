@@ -48,7 +48,7 @@ yarn install
 npm install
 ```
 
-#### 2 Open RNS in your Android simulator
+#### 2 Start it on Android simulator
 
 Run this command in main directory to start your app on Android simulator:
 ```
