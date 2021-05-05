@@ -14,8 +14,8 @@ Simple base project with cool features and Foxy theme🦊
 ## Visuals
 <div align="center">
   
-  <img src="./photo/home-white.jpg" width="22%">
   <img src="./photo/redFoxy.gif" width="22%">
+  <img src="./photo/home-white.jpg" width="22%">
   <img src="./photo/profile-black.jpg" width="22%">
   <img src="./photo/drawer.png" width="22%">
   
