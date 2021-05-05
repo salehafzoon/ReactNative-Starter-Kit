@@ -14,10 +14,10 @@ Simple base project with cool features and Foxy theme🦊
 ## Visuals
 <div align="center">
   
-  <img src="./photo/home-white.jpg" width="230px">
-  <img src="./photo/redFoxy.gif" width="230px">
-  <img src="./photo/profile-black.jpg" width="230px">
-  <img src="./photo/drawer.png" width="230px">
+  <img src="./photo/home-white.jpg" width="210px">
+  <img src="./photo/redFoxy.gif" width="210px">
+  <img src="./photo/profile-black.jpg" width="210px">
+  <img src="./photo/drawer.png" width="210px">
   
 </div>
 
