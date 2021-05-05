@@ -38,10 +38,14 @@ Simple base project with cool features and Foxy theme🦊
 
 ```bash
 # Clone the repo
+
 git clone https://github.com/salehafzoon/ReactNative-Starter-Kit.git
 
-# Navigate to clonned folder and Install dependencies by use of **yarn** or **npm**
-cd ReactNative-Starter-Kit
+# Navigate to clonned folder and rename project
+
+cd ReactNative-Starter-Kit && npx react-native-rename <newName>
+
+# Install dependencies by use of **yarn** or **npm**
 
 yarn install
 # or
