@@ -1,4 +1,4 @@
-# ReactNative-Starter-Kit-
+# ReactNative-Starter-Kit
 Simple base project with cool features and Foxy theme🦊
 
 ![npm](https://img.shields.io/badge/npm-v6.14.12-green.svg)
@@ -20,6 +20,40 @@ Simple base project with cool features and Foxy theme🦊
   <img src="./photo/drawer.png" width="230px">
   
 </div>
+
+## Features
+
+- Well-designed clean file structure
+- React native paper for UI
+- Dark theme compatibility
+- Multi language (defualt English,Persian. you can add more)
+- Multi font support
+- Image picking/selecting support
+- React Navigation V5 (stack, drawer, bottom and switch navigations)
+- Splash screen
+
+## Getting Started
+
+#### 1. Clone and Install
+
+```bash
+# Clone the repo
+git clone https://github.com/salehafzoon/ReactNative-Starter-Kit.git
+
+# Navigate to clonned folder and Install dependencies by use of **yarn** or **npm**
+cd ReactNative-Starter-Kit
+
+yarn install
+# or
+npm install
+```
+
+#### 2 Open RNS in your Android simulator
+
+Run this command in main directory to start your app on Android simulator:
+```
+react-native run-android
+```
 
 
 ## Contributing
