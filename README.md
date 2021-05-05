@@ -8,7 +8,7 @@ Simple base project with cool features and Foxy theme🦊
 ![react_native_paper](https://img.shields.io/badge/react_native_paper-v4.8.1-brown.svg)
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/43959614/116556725-064b4100-a913-11eb-80b2-effbf9a5950f.png" width="290px">
+  <img src="https://user-images.githubusercontent.com/43959614/116556725-064b4100-a913-11eb-80b2-effbf9a5950f.png" width="200px">
 </div>
 
 ## Visuals
