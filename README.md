@@ -1,5 +1,5 @@
 # ReactNative-Starter-Kit
-Simple base project with cool features and Foxy theme🦊
+Simple base project with cool features and a Foxy theme🦊
 
 ![npm](https://img.shields.io/badge/npm-v6.14.12-green.svg)
 ![react](https://img.shields.io/badge/react-v17.0.1-blue.svg)
