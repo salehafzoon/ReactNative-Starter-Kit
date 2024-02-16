@@ -26,7 +26,7 @@ Simple base project with cool features and a Foxy theme🦊
 - Well-designed clean file structure
 - React native paper for UI
 - Dark theme compatibility
-- Multi language (defualt English,Persian. you can add more)
+- Multi-language (default English, Persian. you can add more)
 - Multi font support
 - Image picking/selecting support
 - React Navigation V5 (stack, drawer, bottom and switch navigations)
@@ -52,9 +52,9 @@ yarn install
 npm install
 ```
 
-#### 2 Start it on Android simulator
+#### 2 Start it on an Android simulator
 
-Run this command in main directory to start your app on Android simulator:
+Run this command in the main directory to start your app on an Android simulator:
 ```
 react-native run-android
 ```
